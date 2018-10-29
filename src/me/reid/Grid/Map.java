@@ -2,6 +2,7 @@ package me.reid.Grid;
 
 import java.awt.Graphics;
 
+import me.reid.Entities.Node;
 import me.reid.MazeClient;
 
 public class Map {
@@ -9,6 +10,7 @@ public class Map {
 	private Node[][] nodes;
 	public static final int mapSize = 10;
 	public static final int nodePixelSize = 30;
+	public static final int playerPixelSize = 20;
 
 	public Map() {
 		nodes = new Node[mapSize][mapSize];
@@ -41,6 +43,10 @@ public class Map {
 				nodes[nodeX][nodeY].render(g);
 			}
 		}
+	}
+
+	public Node getNode(int x, int y) {
+		return nodes[x][y];
 	}
 
 }

@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
 import me.reid.Grid.Map;
+import me.reid.Entities.Player.Player;
 
 public class Game implements Runnable {
 
@@ -16,10 +17,14 @@ public class Game implements Runnable {
 	private Graphics g;
 
 	private Map map;
+	private Player player;
+
+	public static int nodeSize = 30, playerSize = 20;
 
 	public Game(MazeClient client) {
 		this.client = client;
 		this.map = new Map();
+		this.player = new Player(map.getNode(0,0));
 		init();
 	}
 
@@ -49,10 +54,10 @@ public class Game implements Runnable {
 		g = bs.getDrawGraphics();
 		// Draw Objects
 		map.drawNodes(g);
+		// Draw Player
+		player.render(g);
 		// Stop
 		bs.show();
-		g.setColor(Color.BLUE);
-		g.drawRect(10, 10, 10, 20);
 		g.dispose();
 	}
 
