@@ -4,8 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
+import me.reid.Entities.Node;
 import me.reid.Grid.Map;
 import me.reid.Entities.Player.Player;
+
+import static me.reid.Grid.Map.mapSize;
 
 public class Game implements Runnable {
 
@@ -24,9 +27,23 @@ public class Game implements Runnable {
 	public Game(MazeClient client) {
 		this.client = client;
 		this.map = new Map();
-		this.player = new Player(map.getNode(0,0));
+		this.player = new Player(this, map.getNode(0,0));
+		client.addKeyListener(player.getController());
 		init();
 	}
+
+	public Node getNode(Node node, int xModification, int yModification) {
+	    int xPosition = node.getX() / nodeSize, yPosition = node.getY() / nodeSize;
+	    xPosition = xPosition + xModification;
+	    yPosition = yPosition + yModification;
+
+	    if((xPosition < 0 || xPosition >= mapSize) || (yPosition < 0 || yPosition >= mapSize))
+	        // Player is moving out of bounds, return current node
+	        return node;
+
+	    // Valid move, return next node
+	    return map.getNode(xPosition, yPosition);
+    }
 
 	public void init() {
 		this.running = true;
@@ -37,6 +54,7 @@ public class Game implements Runnable {
 		while (running) {
 			tick();
 			render();
+			client.focus();
 		}
 		stop();
 	}

@@ -1,6 +1,9 @@
 package me.reid;
 
+import me.reid.Grid.Map;
+
 import java.awt.Canvas;
+import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
 
@@ -13,6 +16,8 @@ public class MazeClient {
 	public static int width = 300, height = 320;
 
 	public static void main(String[] args) {
+		width = (Map.nodePixelSize * Map.mapSize);
+		height = width;
 		MazeClient client = new MazeClient();
 		client.create();
 	}
@@ -29,5 +34,13 @@ public class MazeClient {
 
 		new Game(this);
 	}
+
+	public void addKeyListener(KeyListener listener) {
+	    frame.addKeyListener(listener);
+    }
+
+    public void focus() {
+	    frame.requestFocusInWindow();
+    }
 
 }

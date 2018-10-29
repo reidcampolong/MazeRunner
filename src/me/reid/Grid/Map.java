@@ -8,7 +8,7 @@ import me.reid.MazeClient;
 public class Map {
 
 	private Node[][] nodes;
-	public static final int mapSize = 10;
+	public static final int mapSize = 20;
 	public static final int nodePixelSize = 30;
 	public static final int playerPixelSize = 20;
 
@@ -26,9 +26,8 @@ public class Map {
 				int pixelY = nodeY * nodePixelSize;
 				if (pixelX > (MazeClient.width + nodePixelSize))
 					pixelX = 0;
-				if(pixelY > (MazeClient.height + nodePixelSize)) {
+				if(pixelY > (MazeClient.height + nodePixelSize))
 					System.out.println("Out of bounds!");
-				}
 				boolean isWall = false;
 				if(pixelY % 60 == 0)
 					isWall = true;
