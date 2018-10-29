@@ -49,10 +49,8 @@ public class Player implements Drawable {
     }
 
     public void changeNodeByCoords(int xModification, int yModification) {
-        Node nextNode = game.getNode(currentNode, xModification, yModification);
-        this.currentNode = (nextNode != null) ? nextNode : currentNode;
+        this.currentNode = game.getNode(currentNode, xModification, yModification);
     }
-
 
     public Controller getController() {
         return controller;
