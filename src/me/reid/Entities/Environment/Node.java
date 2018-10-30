@@ -1,10 +1,9 @@
-package me.reid.Entities;
+package me.reid.Entities.Environment;
 
 import me.reid.Grid.Drawable;
 import me.reid.Grid.Map;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 
 public class Node implements Drawable {
 
@@ -18,7 +17,6 @@ public class Node implements Drawable {
 		this.isWall = isWall;
 
 		this.color = Color.white;
-		//this.color = isWall ? Color.black : Color.white;
 	}
 
 	public int getX() {
@@ -28,6 +26,14 @@ public class Node implements Drawable {
 	public int getY() {
 		return this.y;
 	}
+
+	public void setColor(Color color) {
+	    this.color = color;
+    }
+
+    public boolean isWall() {
+	    return this.isWall;
+    }
 
 	public void render(Graphics g) {
 		g.setColor(Color.black);
