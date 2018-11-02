@@ -34,7 +34,7 @@ public abstract class MoveableEntity implements Drawable {
     }
 
     public void changeNodeByCoords(int xModification, int yModification) {
-        this.currentNode = game.getNode(currentNode, xModification, yModification);
+        this.currentNode = game.getNodeByCoordinates(currentNode, xModification, yModification);
     }
 
     public abstract void render(Graphics g);

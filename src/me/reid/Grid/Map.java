@@ -40,6 +40,9 @@ public class Map {
 		createEndBlock();
 	}
 
+	/**
+	 * Places end block at game start
+	 */
 	private void createEndBlock() {
 	    int row = mapSize - 1;
 	    int col = (mapSize/2) - 1;
@@ -56,6 +59,16 @@ public class Map {
 				nodes[nodeX][nodeY].render(g);
 			}
 		}
+	}
+
+	/**
+	 * Check if x and y are Node coordinates
+	 * @param xPosition
+	 * @param yPosition
+	 * @return true if node coordinates
+	 */
+	public boolean isCoordinatesOutofBounds(int xPosition, int yPosition) {
+		return (xPosition < 0 || xPosition >= mapSize) || (yPosition < 0 || yPosition >= mapSize);
 	}
 
     /**

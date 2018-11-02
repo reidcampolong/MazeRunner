@@ -33,19 +33,20 @@ public class MazeClient {
 
 		canvas = new Canvas();
 		canvas.setSize(600, 600);
-		canvas.addMouseListener(new WallCreator());
         frame.add(canvas);
 
         frame.getContentPane().setBackground(Color.black);
-
 
 		new Game(this);
 	}
 
 	public void addKeyListener(KeyListener listener) {
-	    frame.addKeyListener(listener);
+	    canvas.addKeyListener(listener);
     }
-    public void addClickListener(MouseListener listener) {frame.addMouseListener(listener);}
+
+	public void addMouseListener(MouseListener listener) {
+		canvas.addMouseListener(listener);
+	}
 
     public void focus() {
 	    frame.requestFocusInWindow();
