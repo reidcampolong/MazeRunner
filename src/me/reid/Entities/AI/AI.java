@@ -8,6 +8,9 @@ import me.reid.Grid.Map;
 
 import java.awt.*;
 
+/**
+ * Pathfinder entity
+ */
 public class AI extends MoveableEntity {
 
     public AI(Game game, Node startingNode) {

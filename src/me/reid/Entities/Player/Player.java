@@ -7,6 +7,9 @@ import me.reid.Entities.Environment.Node;
 
 import java.awt.*;
 
+/**
+ * Player controlled by keyboard events
+ */
 public class Player extends MoveableEntity {
 
     private Controller controller;

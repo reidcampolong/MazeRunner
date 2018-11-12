@@ -7,9 +7,12 @@ import me.reid.Entities.AI.AI;
 import me.reid.Entities.Environment.Node;
 import me.reid.Grid.Map;
 import me.reid.Entities.Player.Player;
+import me.reid.Grid.WallCreator;
 
-import static me.reid.Grid.Map.mapSize;
-
+/**
+ * This is the game instance. Contains running loop, rendering,
+ * logic etc.
+ */
 public class Game implements Runnable {
 
 	private MazeClient client;
@@ -34,11 +37,17 @@ public class Game implements Runnable {
 		init();
 	}
 
+    /**
+     * Start running the game
+     */
 	public void init() {
 		this.running = true;
 		this.run();
 	}
 
+    /**
+     * Game run loop
+     */
 	public void run() {
         long lastTime = System.nanoTime();
         double nsPerTick = 1000000000D / 60D;
@@ -62,7 +71,7 @@ public class Game implements Runnable {
             }
 
             try {
-                Thread.sleep(2);
+                Thread.sleep(20);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -86,6 +95,9 @@ public class Game implements Runnable {
 
 	}
 
+    /**
+     * Draw objects to screen
+     */
 	public void render() {
 		bs = client.canvas.getBufferStrategy();
 		if (bs == null) {
@@ -108,6 +120,9 @@ public class Game implements Runnable {
 		g.dispose();
 	}
 
+    /**
+     * Starts the game thread
+     */
 	public synchronized void start() {
 		if (running)
 			return;
@@ -116,6 +131,9 @@ public class Game implements Runnable {
 		thread.start();
 	}
 
+    /**
+     * Stops the game
+     */
 	public synchronized void stop() {
 		if (!running)
 			return;
@@ -151,6 +169,12 @@ public class Game implements Runnable {
         return map.getNode(xPosition, yPosition);
     }
 
+    /**
+     * Returns a new node in relation to screen coordinates
+     * @param pixelX
+     * @param pixelY
+     * @return New node at pixel x, y
+     */
     public Node getNodeByPixels(int pixelX, int pixelY) {
         int xPosition = (int) Math.floor(pixelX / 30);
         int yPosition = (int) Math.floor(pixelY / 30);

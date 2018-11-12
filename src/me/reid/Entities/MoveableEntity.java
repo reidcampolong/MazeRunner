@@ -7,6 +7,9 @@ import me.reid.Grid.Drawable;
 
 import java.awt.*;
 
+/**
+ * An entity that can be drawn and can be moved programatically.
+ */
 public abstract class MoveableEntity implements Drawable {
 
     private Game game;

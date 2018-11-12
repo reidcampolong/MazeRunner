@@ -1,25 +1,30 @@
 package me.reid.Entities.Player;
 
+import me.reid.Entities.MoveableEntity;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+/**
+ * Listens to key events from Moveable Entity
+ */
 public class Controller implements KeyListener {
 
-    private Player player;
+    private MoveableEntity entity;
 
-    public Controller(Player player) {
-        this.player = player;
+    public Controller(MoveableEntity entity) {
+        this.entity = entity;
     }
 
     public void keyPressed(KeyEvent e){
         if(e.getKeyCode() == KeyEvent.VK_RIGHT)
-            player.moveRight();
+            entity.moveRight();
         else if(e.getKeyCode() == KeyEvent.VK_LEFT)
-            player.moveLeft();
+            entity.moveLeft();
         else if(e.getKeyCode() == KeyEvent.VK_DOWN)
-            player.moveDown();
+            entity.moveDown();
         else if(e.getKeyCode() == KeyEvent.VK_UP)
-            player.moveUp();
+            entity.moveUp();
     }
 
     public void keyTyped(KeyEvent e) {}

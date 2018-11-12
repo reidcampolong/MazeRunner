@@ -1,19 +1,23 @@
-package me.reid;
+package me.reid.Grid;
 
-import java.awt.*;
+import me.reid.Entities.Environment.Node;
+import me.reid.Game;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class WallCreator implements MouseListener {
 
-   private Game game;
+    private Game game;
+
     public WallCreator(Game game) {
         this.game = game;
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-        game.getNodeByPixels(e.getX(), e.getY()).setColor(Color.ORANGE);
+        Node node = game.getNodeByPixels(e.getX(), e.getY());
+        node.setWall(!node.isWall());
     }
 
     @Override
