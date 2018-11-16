@@ -10,6 +10,11 @@ import java.awt.*;
  */
 public class Node implements Drawable {
 
+    // Pathfinding resources
+    private int HValue;
+    private int GValue;
+    private Node parent;
+
     private Color color;
     private boolean isWall;
     private int x, y;
