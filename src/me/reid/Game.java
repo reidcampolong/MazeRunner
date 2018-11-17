@@ -83,7 +83,7 @@ public class Game implements Runnable {
 
             if (System.currentTimeMillis() - lastTimer >= 1000) {
                 lastTimer += 1000;
-                System.out.println(ticks + " ticks, " + frames + " frames");
+                //System.out.println(ticks + " ticks, " + frames + " frames");
                 frames = 0;
                 ticks = 0;
             }
@@ -182,6 +182,14 @@ public class Game implements Runnable {
             return map.getNode(xPosition, yPosition);
         }
         return null;
+    }
+
+    public AI getAI() {
+        return ai;
+    }
+
+    public Map getMap() {
+        return map;
     }
 
 }

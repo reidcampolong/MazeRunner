@@ -1,5 +1,6 @@
 package me.reid.Entities.Player;
 
+import me.reid.Entities.AI.Pathfinding;
 import me.reid.Entities.MoveableEntity;
 import me.reid.Game;
 import me.reid.Grid.Map;
@@ -25,6 +26,9 @@ public class Player extends MoveableEntity {
                 getNode().getY() + ((Map.nodePixelSize / 2) - (Map.playerPixelSize/2)), Map.playerPixelSize, Map.playerPixelSize);
     }
 
+    public void customEvent() {
+        Pathfinding.start(getGame(), getGame().getAI().getNode());
+    }
     public Controller getController() {
         return controller;
     }

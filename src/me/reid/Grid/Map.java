@@ -37,16 +37,17 @@ public class Map {
 				nodes[nodeX][nodeY] = new Node(pixelX, pixelY, false);
 			}
 		}
-		createEndBlock();
+		endBlock = createEndBlock();
 	}
 
 	/**
 	 * Places end block at game start
 	 */
-	private void createEndBlock() {
+	private EndBlock createEndBlock() {
 	    int row = mapSize - 1;
 	    int col = (mapSize/2) - 1;
         nodes[row][col] = new EndBlock(row * nodePixelSize, col * nodePixelSize, true);
+        return (EndBlock) nodes[row][col];
     }
 
     /**
@@ -80,5 +81,13 @@ public class Map {
 	public Node getNode(int x, int y) {
 		return nodes[x][y];
 	}
+
+	public Node[][] getNodes() {
+		return nodes;
+	}
+
+	public EndBlock getEndBlock() {
+	    return endBlock;
+    }
 
 }

@@ -23,4 +23,10 @@ public class AI extends MoveableEntity {
         g.fillOval(getNode().getX() + ((Map.nodePixelSize / 2) - (Map.playerPixelSize/2)),
                 getNode().getY() + ((Map.nodePixelSize / 2) - (Map.playerPixelSize/2)), Map.playerPixelSize, Map.playerPixelSize);
     }
+
+    public void customEvent() {
+        System.out.println("Beginning custom event.");
+        Pathfinding pathing = new Pathfinding(getGame().getMap());
+        pathing.A_Star(getNode(), getGame().getMap().getEndBlock());
+    }
 }
