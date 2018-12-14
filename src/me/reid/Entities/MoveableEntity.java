@@ -36,11 +36,24 @@ public abstract class MoveableEntity implements Drawable {
         changeNodeByCoords(0,1);
     }
 
+    /**
+     * Set the current node to new coordinates
+     * @param x Offset
+     * @param y Offset
+     */
     public void changeNodeByCoords(int xModification, int yModification) {
         this.currentNode = game.getNodeByCoordinates(currentNode, xModification, yModification);
     }
 
+    /**
+     * Every entity can have their own special action
+     */
     public abstract void customEvent();
+
+    /**
+     * Draw an entity on screen
+     * @param g
+     */
     public abstract void render(Graphics g);
 
     public Game getGame() {

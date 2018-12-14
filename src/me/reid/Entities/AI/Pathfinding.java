@@ -15,6 +15,7 @@ public class Pathfinding {
 
     public final static int LAT_MOVE_COST = 10;
 
+    private List<Node> path;
     private List<Node> openSet;
     private List<Node> closedSet;
 
@@ -23,6 +24,7 @@ public class Pathfinding {
     public Pathfinding(Map map) {
         this.openSet = new ArrayList<>();
         this.closedSet = new ArrayList<>();
+        this.path = new ArrayList<>();
         this.map = map;
     }
 
@@ -38,17 +40,20 @@ public class Pathfinding {
     }
 
     public void tracePath(Node start, Node goal) {
-        List<Node> path = new ArrayList<>();
-
+        for(Node[] n : map.getNodes()) {
+            for(Node n2 : n){
+                if(n2.getColor() == Color.YELLOW || n2.getColor() == Color.CYAN)
+                    n2.setColor(Color.white);
+            }
+        }
         Node current = goal;
         while(!current.equals(start)) {
             path.add(current);
             current = current.getPathfindingParent();
         }
-        System.out.println("Total nodes: " + path.size());
-        for(Node n : path) {
+
+        for(Node n : path)
             n.setColor(Color.cyan);
-        }
     }
 
     /**
@@ -61,7 +66,6 @@ public class Pathfinding {
      */
     public void A_Star(Node start, Node goal) {
         // TODO set this to AI's position
-        start = map.getNode(5,0);
         System.out.println("Start: " + nodeCord(start) + " End: " + nodeCord(goal));
         // Set of nodes already evaluated
         closedSet.clear();
@@ -100,14 +104,14 @@ public class Pathfinding {
 
                 // Already evaluated
                 if(n.isWall() || closedSet.contains(n)) {
-                    System.out.println(nodeCord(n) + " already evaluated");
+                    //System.out.println(nodeCord(n) + " already evaluated");
                     continue;
                 }
 
                 n.setColor(Color.YELLOW);
 
                 int tentative_gScore = current.getGValue() + heuristic_cost_estimate(current, n);
-                System.out.println("Tentative: " + tentative_gScore + " Compared to " + n.getGValue());
+                //System.out.println("Tentative: " + tentative_gScore + " Compared to " + n.getGValue());
                 if(tentative_gScore < n.getGValue() || !openSet.contains(n)) {
                     n.setGValue(tentative_gScore);
                     n.setHValue(heuristic_cost_estimate(n, goal));

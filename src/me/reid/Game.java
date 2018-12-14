@@ -30,7 +30,7 @@ public class Game implements Runnable {
 		this.client = client;
 		this.map = new Map();
 		this.player = new Player(this, map.getNode(0,0));
-		this.ai = new AI(this, map.getNode(5,0));
+		this.ai = new AI(this, map.getNode(2,0));
 
 		client.addKeyListener(player.getController());
 		client.addMouseListener(new WallCreator(this));

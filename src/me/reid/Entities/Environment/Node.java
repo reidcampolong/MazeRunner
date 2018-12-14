@@ -47,6 +47,8 @@ public class Node implements Drawable {
         this.color = color;
     }
 
+    public Color getColor() { return this.color; }
+
     public boolean isWall() {
         return this.isWall;
     }

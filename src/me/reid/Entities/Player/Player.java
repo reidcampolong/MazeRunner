@@ -27,7 +27,8 @@ public class Player extends MoveableEntity {
     }
 
     public void customEvent() {
-        Pathfinding.start(getGame(), getGame().getAI().getNode());
+        Pathfinding pathing = new Pathfinding(getGame().getMap());
+        pathing.A_Star(getNode(), getGame().getMap().getEndBlock());
     }
     public Controller getController() {
         return controller;

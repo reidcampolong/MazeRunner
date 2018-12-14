@@ -17,8 +17,6 @@ public class Controller implements KeyListener {
     }
 
     public void keyPressed(KeyEvent e){
-        System.out.println("Key event" + (e.getKeyCode()));
-        System.out.println(KeyEvent.VK_E);
         if(e.getKeyCode() == KeyEvent.VK_RIGHT)
             entity.moveRight();
         else if(e.getKeyCode() == KeyEvent.VK_LEFT)
@@ -28,7 +26,6 @@ public class Controller implements KeyListener {
         else if(e.getKeyCode() == KeyEvent.VK_UP)
             entity.moveUp();
         else if(e.getKeyCode() == KeyEvent.VK_E) {
-            System.out.println("Trigger E event");
             entity.customEvent();
         }
     }

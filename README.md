@@ -5,16 +5,18 @@
 I watched a really cool video on pathfinding robots once. I decided to make it into a game. Race against a pathfinding algorithm to the finish line! (Good luck with that..)
 
 ## Project Status
-Finishing implementing the final game client features.
+The pathfinding has been implemented.
+
+Next, finishing implementing the final game client features.
 TODO:
-	1) Implement the pathfinder
-	2) Implement randomly generated maze terrain
-	3) Implement round start/stop gameplay
+	1) Implement randomly generated maze terrain
+	2) Implement round start/stop gameplay
  
 ## How to Play
 1) Running the program will begin the game client. The client is written in Java utilizing the AWT library.
 
 Player controls are the four arrow keys.
+Pressing E will re-calculate the path shown in blue
 
 ## Running the Program
 Built using Java 8.
