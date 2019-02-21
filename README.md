@@ -1,25 +1,22 @@
 
-# Maze Race
+# Maze Runner
 ### Background Information
 
-I watched a really cool video on pathfinding robots once. I decided to make it into a game. Race against a pathfinding algorithm to the finish line! (Good luck with that..)
+I watched a really cool video on pathfinding robots once. I decided to make it into a gui to visualize it.
 
 ## Project Status
 The pathfinding has been implemented.
-
-Next, finishing implementing the final game client features.
-TODO:
-	1) Implement randomly generated maze terrain
-	2) Implement round start/stop gameplay
+Place walls by clicking and run the algorithm using 'E'.
  
 ## How to Play
 1) Running the program will begin the game client. The client is written in Java utilizing the AWT library.
 
 Player controls are the four arrow keys.
 Pressing E will re-calculate the path shown in blue
+Place walls using the left mouse button
 
 ## Running the Program
 Built using Java 8.
 
-## Future Plans
-Definitely will be considering JavaFX. AWT was much quicker for me to get the project off the ground with. For now, I will be working on the TODO list visible under the ‘Project Status’ tab.
+## What I Learned
+This was my first time ever seeing the A* pathfinding algorithm. I thought it was really cool and set out to learn it on my own. I'm very proud of how it turned out, being a very fun project and helped me to turn a wikipedia page into a working algorithm.
